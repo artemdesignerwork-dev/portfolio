@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mobile Rental Platform — Артем Мута</title>
+<meta name="description" content="Havener — мобильная платформа для аренды жилья. Цель — упростить весь путь от поиска до бронирования для гостей и хозяев.">
+<meta property="og:title" content="Mobile Rental Platform — кейс Артема Муты">
+<meta property="og:description" content="Havener — мобильная платформа для аренды жилья. Цель — упростить весь путь от поиска до бронирования для гостей и хозяев.">
+<meta property="og:image" content="../assets/cases/mobile-rental/01-intro.jpg">
+<link rel="preload" href="../assets/fonts/golos-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/golos-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="../index.html" aria-label="Артем Мута — на главную">
+      <span>Артем Мута</span>
+    </a>
+    <a class="nav__back" href="../index.html#projects"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 8H3M7 4 3 8l4 4"/></svg> Все проекты</a>
+    <a class="btn btn--sm" href="mailto:artemdesigner.work@gmail.com">Написать <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="cs-hero" aria-labelledby="cs-title">
+    <div class="wrap">
+      <div class="cs-hero__head">
+        <div class="cs-hero__title">
+          <h1 id="cs-title" class="reveal" style="--i:0">Mobile Rental Platform</h1>
+          <p class="lede reveal" style="--i:1">Havener — мобильная платформа для аренды жилья. Цель — упростить весь путь от поиска до бронирования для гостей и хозяев.</p>
+        </div>
+        <dl class="cs-meta reveal" style="--i:2">
+          <div><dt>Роль</dt><dd>UX/UI Product Designer</dd></div>
+          <div><dt>Платформа</dt><dd>Mobile app (iOS / Android)</dd></div>
+          <div><dt>Фокус</dt><dd>UX, UI, Information Architecture, Visual Design</dd></div>
+        </dl>
+      </div>
+      <figure class="cs-hero__media reveal" style="--i:2; --hero-ar:1.700">
+        <img src="../assets/cases/mobile-rental/01-intro.jpg" width="1920" height="1080" alt="Обложка Havener: «Find your stay — faster, smarter, easier»" fetchpriority="high">
+      </figure>
+    </div>
+  </section>
+
+  <article class="cs-body">
+    <div class="wrap">
+      <div class="prose">
+<h2>Контекст</h2>
+<p>Рынок аренды жилья предлагает огромное количество вариантов, однако сам процесс поиска и бронирования часто остается сложным и фрагментированным.</p>
+<p>Пользователям приходится переключаться между десятками объявлений, сравнивать характеристики вручную и проходить длинный путь до принятия решения.</p>
+<p>Особенно заметна эта проблема на мобильных устройствах, где количество информации значительно превышает доступное пространство экрана.</p>
+<h2>Проблема</h2>
+<p>Большинство платформ строятся вокруг каталогов недвижимости.</p>
+<p>Пользователь сталкивается с несколькими сложностями:</p>
+<ul>
+<li>перегруженные списки объектов;</li>
+<li>сложный процесс сравнения вариантов;</li>
+<li>избыток информации на ранних этапах;</li>
+<li>большое количество шагов до бронирования;</li>
+<li>отсутствие ощущения контроля над процессом.</li>
+</ul>
+<p>В результате поиск жилья превращается в длительный и утомительный процесс.</p>
+<h2>Анализ конкурентов</h2>
+<h3>Properstar</h3>
+<h4>Сильные стороны</h4>
+<ul>
+<li>Международная платформа с более чем <strong>3 миллионами объектов недвижимости по всему миру</strong>. Properstar позиционируется как глобальный сервис поиска недвижимости.</li>
+<li>Расширенная система фильтрации, включая такие параметры, как наличие балкона, бассейна, класс энергоэффективности и возможность проживания с животными.</li>
+<li>Поддержка нескольких языков и международных рынков, что редко встречается среди специализированных сервисов недвижимости.</li>
+</ul>
+<h4>Слабые стороны</h4>
+<ul>
+<li>Более слабая узнаваемость бренда по сравнению с крупнейшими игроками рынка.</li>
+<li>Ограниченное количество публичной информации о дополнительных сервисах, связанных с бронированием, оплатой и взаимодействием с арендодателями.</li>
+<li>Интерфейс в большей степени ориентирован на поиск недвижимости, чем на построение полного пользовательского сценария аренды.</li>
+</ul>
+<figure class="fig fig--grid fig--n3 fig--strip reveal" style="--n:4;">
+<div class="fig__cell"><div class="fig__tall fig__tall--fixed" tabindex="0"><img src="../assets/cases/mobile-rental/02-image.jpg" width="900" height="1800" alt="Properstar: избранное" loading="lazy"></div></div>
+<div class="fig__cell"><div class="fig__tall fig__tall--fixed" tabindex="0"><img src="../assets/cases/mobile-rental/03-image.jpg" width="900" height="1800" alt="Properstar: запись на просмотр" loading="lazy"></div></div>
+<div class="fig__cell"><div class="fig__tall fig__tall--fixed" tabindex="0"><img src="../assets/cases/mobile-rental/04-image.jpg" width="900" height="1800" alt="Properstar: поиск по 50 странам" loading="lazy"></div></div>
+</figure>
+<h3>Trulia</h3>
+<h4>Сильные стороны</h4>
+<ul>
+<li>Один из наиболее известных сервисов недвижимости в США с большой базой объектов.</li>
+<li>Сильный акцент на контексте района: школы, транспорт, инфраструктура, безопасность и отзывы местных жителей.</li>
+<li>Глубокая интеграция данных о районе, что помогает принимать решения не только по объекту, но и по окружающей среде.</li>
+</ul>
+<h4>Слабые стороны</h4>
+<ul>
+<li>Сервис практически полностью ориентирован на рынок США.</li>
+<li>Большое количество данных о районе может создавать информационную перегрузку на ранних этапах поиска.</li>
+<li>Некоторые пользователи отмечают ограничения в фильтрации и сложности при поиске нестандартных вариантов жилья.</li>
+</ul>
+<h3>Zoopla</h3>
+<h4>Сильные стороны</h4>
+<ul>
+<li>Один из крупнейших игроков на рынке Великобритании.</li>
+<li>Предоставляет дополнительные аналитические инструменты: история продаж, оценка стоимости недвижимости, рыночные показатели.</li>
+<li>Хорошая репутация мобильного приложения и понятная структура интерфейса.</li>
+<li>Развитые инструменты для агентств недвижимости и партнерских программ.</li>
+</ul>
+<h4>Слабые стороны</h4>
+<ul>
+<li>Ограниченность географией Великобритании.</li>
+<li>Пользователи отмечают недостаток отдельных фильтров и критериев поиска.</li>
+<li>Большой объем информации может усложнять процесс принятия решений.</li>
+</ul>
+<figure class="fig fig--grid fig--n4 fig--strip reveal" style="--n:4;">
+<div class="fig__cell"><div class="fig__tall fig__tall--fixed" tabindex="0"><img src="../assets/cases/mobile-rental/05-image.jpg" width="900" height="1948" alt="Trulia: карта района с локальной информацией" loading="lazy"></div></div>
+<div class="fig__cell"><div class="fig__tall fig__tall--fixed" tabindex="0"><img src="../assets/cases/mobile-rental/06-image.jpg" width="900" height="1948" alt="Trulia: настройка поиска на карте" loading="lazy"></div></div>
+<div class="fig__cell"><div class="fig__tall fig__tall--fixed" tabindex="0"><img src="../assets/cases/mobile-rental/07-image.jpg" width="900" height="1948" alt="Trulia: общие избранные" loading="lazy"></div></div>
+<div class="fig__cell fig__cell--wide" style="grid-column:1/-1"><img src="../assets/cases/mobile-rental/08-image.jpg" width="2000" height="1017" alt="Zoopla: экраны поиска, фильтров и сохранённых запросов" loading="lazy"></div>
+</figure>
+<h3>Zillow</h3>
+<div class="side"><div class="side__text">
+<h4>Сильные стороны</h4>
+<ul>
+<li>Один из технологических лидеров рынка недвижимости.</li>
+<li>Использование AI-функций, виртуальных туров и современных поисковых технологий.</li>
+<li>Огромная база объектов недвижимости и широкий набор инструментов для разных сценариев использования.</li>
+<li>Развитые возможности поиска, сохранения и сравнения объектов. Zillow даже внедрил отдельный инструмент для сравнения нескольких объектов одновременно.</li>
+</ul>
+<h4>Слабые стороны</h4>
+<ul>
+<li>Огромное количество объектов и функций может перегружать пользователей.</li>
+<li>Основной фокус на рынке США.</li>
+<li>Сложная экосистема сервисов увеличивает когнитивную нагрузку для новых пользователей.</li>
+<li>Интерфейс ориентирован на максимальное количество возможностей, а не на упрощение процесса выбора.</li>
+</ul>
+</div>
+<figure class="fig fig--grid fig--n1 fig--strip reveal" style="--n:1; max-width:300px">
+<div class="fig__cell"><div class="fig__tall fig__tall--fixed" tabindex="0"><img src="../assets/cases/mobile-rental/09-image.jpg" width="626" height="1180" alt="Zillow: карта с объектами" loading="lazy"></div></div>
+</figure>
+</div>
+<h2>Ключевые выводы исследования</h2>
+<p>После анализа конкурентов были выявлены несколько повторяющихся паттернов:</p>
+<div class="cols">
+<div><p class="label">Информационная перегрузка</p>
+<p>Большинство платформ пытаются показать пользователю максимально возможное количество информации на ранних этапах взаимодействия.</p>
+</div>
+<div><p class="label">Сложность сравнения объектов</p>
+<p>Пользователям приходится самостоятельно сопоставлять характеристики жилья между несколькими карточками и экранами.</p>
+</div>
+<div><p class="label">Длинный путь до принятия решения</p>
+<p>Процесс аренды часто состоит из большого количества промежуточных шагов и переключений между экранами.</p>
+</div>
+<div><p class="label">Фокус на данных вместо опыта</p>
+<p>Большинство решений эффективно помогают искать объекты, но уделяют меньше внимания самому процессу принятия решения.</p>
+</div>
+</div>
+<div class="callout">
+<p>На основе анализа было принято решение сосредоточиться не на увеличении количества функций, а на улучшении пользовательского опыта.</p>
+<p>Основными направлениями стали:</p>
+<ul>
+<li>сокращение когнитивной нагрузки;</li>
+<li>упрощение сравнения объектов;</li>
+<li>уменьшение количества шагов до бронирования;</li>
+<li>повышение прозрачности процесса;</li>
+<li>создание более предсказуемого и комфортного мобильного опыта.</li>
+</ul>
+</div>
+<h2>Цель проекта</h2>
+<p>Создать мобильный опыт, который позволяет:</p>
+<ul>
+<li>быстрее находить подходящие варианты;</li>
+<li>упростить процесс принятия решений;</li>
+<li>сократить путь до бронирования;</li>
+<li>сделать взаимодействие более предсказуемым;</li>
+<li>повысить уверенность пользователя на каждом этапе.</li>
+</ul>
+<h2>Исследование</h2>
+<p>На старте проекта была проведена декомпозиция пользовательского пути арендатора.</p>
+<p>Были выделены ключевые этапы:</p>
+<ol>
+<li>Поиск жилья.</li>
+<li>Просмотр вариантов.</li>
+<li>Сравнение объектов.</li>
+<li>Принятие решения.</li>
+<li>Бронирование.</li>
+</ol>
+<p>Анализ показал, что наибольшее количество потерь внимания происходит между этапами просмотра объектов и принятием решения.</p>
+<p>Именно этот участок пользовательского пути стал основным фокусом проекта.</p>
+<h2>Описание пользователей</h2>
+<section class="persona"><h3>Персона 1 — Мария</h3><div class="persona__grid">
+<div><p class="label">Основная информация</p>
+<p><strong>Имя:</strong> Мария</p>
+<p><strong>Возраст:</strong> 29 лет</p>
+<p><strong>Профессия:</strong> Специалист по маркетингу</p>
+<p><strong>Локация:</strong> Недавно переехала из Лиссабона в Берлин</p>
+<p><strong>Доход:</strong> €3 200 / месяц</p>
+<p><strong>Жилищная ситуация:</strong> Арендует жильё одна, вместе с небольшой собакой</p>
+</div>
+<div><p class="label">Цели</p>
+<ul>
+<li>Найти жильё, подходящее для проживания с питомцем</li>
+<li>Быстро записываться на просмотры без длительной переписки</li>
+<li>Получить достоверное представление о районе до принятия решения</li>
+<li>Использовать удобный мобильный сервис для поиска жилья</li>
+</ul>
+</div>
+<div><p class="label">Поведение</p>
+<ul>
+<li>Ищет жильё со смартфона во время перерывов на работе</li>
+<li>При выборе ориентируется на фотографии, карту и отзывы</li>
+<li>Не использует сервисы без фильтрации по питомцам</li>
+<li>Обращает внимание на прозрачность условий аренды и дополнительных платежей</li>
+</ul>
+</div>
+<div><p class="label">Болевые точки</p>
+<ul>
+<li>Сталкивается с неактуальными объявлениями</li>
+<li>Вынуждена использовать несколько платформ одновременно</li>
+<li>Теряет время на просмотр неподходящих объектов</li>
+<li>Недостаточно хорошо владеет местным языком</li>
+</ul>
+</div>
+<div><p class="label">Потребности в приложении</p>
+<ul>
+<li>Точная фильтрация по цене, району и условиям проживания с животными</li>
+<li>Удобная запись на просмотр</li>
+<li>Реальные фотографии и панорамы района</li>
+<li>Быстрый мобильный интерфейс</li>
+<li>Поддержка нескольких языков</li>
+</ul>
+</div>
+</div>
+</section>
+<section class="persona"><h3>Персона 2 — Михаил</h3><div class="persona__grid">
+<div><p class="label">Основная информация</p>
+<p><strong>Имя:</strong> Алекс</p>
+<p><strong>Возраст:</strong> 34 года</p>
+<p><strong>Профессия:</strong> Product Manager</p>
+<p><strong>Локация:</strong> Лондон</p>
+<p><strong>Доход:</strong> £5 800 / месяц</p>
+<p><strong>Жилищная ситуация:</strong> Переезжает вместе с супругой</p>
+</div>
+<div><p class="label">Цели</p>
+<ul>
+<li>Найти жильё рядом с офисом</li>
+<li>Сравнивать несколько вариантов одновременно</li>
+<li>Сократить время на поиск недвижимости</li>
+<li>Быстро принимать решения без постоянных просмотров</li>
+</ul>
+</div>
+<div><p class="label">Поведение</p>
+<ul>
+<li>Сохраняет множество объектов для сравнения</li>
+<li>Активно использует фильтры и карту</li>
+<li>Изучает транспортную доступность района</li>
+<li>Принимает решения на основе данных и характеристик</li>
+</ul>
+</div>
+<div><p class="label">Болевые точки</p>
+<ul>
+<li>Сложно сравнивать несколько объектов между собой</li>
+<li>Недостаток информации о районе</li>
+<li>Слишком большое количество одинаковых объявлений</li>
+<li>Неочевидные дополнительные платежи</li>
+</ul>
+</div>
+<div><p class="label">Потребности в приложении</p>
+<ul>
+<li>Инструменты сравнения объектов</li>
+<li>Карта с информацией о транспорте и инфраструктуре</li>
+<li>Прозрачный расчёт полной стоимости аренды</li>
+<li>Возможность быстро делиться вариантами с супругой</li>
+<li>Система избранного и заметок</li>
+</ul>
+</div>
+</div>
+</section>
+<section class="persona"><h3>Персона 3 — София</h3><div class="persona__grid">
+<div><p class="label">Основная информация</p>
+<p><strong>Имя:</strong> София</p>
+<p><strong>Возраст:</strong> 23 года</p>
+<p><strong>Профессия:</strong> Магистрант университета</p>
+<p><strong>Локация:</strong> Амстердам</p>
+<p><strong>Доход:</strong> €1 400 / месяц</p>
+<p><strong>Жилищная ситуация:</strong> Ищет первое самостоятельное жильё</p>
+</div>
+<div><p class="label">Цели</p>
+<ul>
+<li>Найти доступное жильё в рамках ограниченного бюджета</li>
+<li>Понять процесс аренды без помощи посредников</li>
+<li>Избежать мошеннических объявлений</li>
+<li>Быстро находить варианты рядом с университетом</li>
+</ul>
+</div>
+<div><p class="label">Поведение</p>
+<ul>
+<li>Использует только мобильные приложения</li>
+<li>Сравнивает большое количество вариантов</li>
+<li>Часто возвращается к сохранённым объявлениям</li>
+<li>Изучает отзывы и рейтинг арендодателей</li>
+</ul>
+</div>
+<div><p class="label">Болевые точки</p>
+<ul>
+<li>Сложно понять реальные условия аренды</li>
+<li>Ограниченный бюджет сильно сокращает выбор</li>
+<li>Отсутствие доверия к объявлениям</li>
+<li>Недостаток опыта в аренде недвижимости</li>
+</ul>
+</div>
+<div><p class="label">Потребности в приложении</p>
+<ul>
+<li>Проверенные объявления</li>
+<li>Индикаторы надёжности арендодателя</li>
+<li>Простое объяснение условий аренды</li>
+<li>Уведомления о новых объектах по заданным параметрам</li>
+<li>Понятный и дружелюбный интерфейс</li>
+</ul>
+</div>
+</div>
+</section>
+<p>После анализа пользовательских сценариев были выявлены три основные потребности:</p>
+<ol>
+<li><strong>Снижение времени на поиск подходящего жилья</strong></li>
+<li><strong>Упрощение сравнения объектов</strong></li>
+<li><strong>Повышение прозрачности процесса аренды</strong></li>
+</ol>
+<h2>User Flow</h2>
+<p>Для Havener пользовательский сценарий был разделён на два ключевых этапа:</p>
+<ol>
+<li><strong>Поиск жилья (Searching Process)</strong></li>
+<li><strong>Бронирование и проживание (Booking Process)</strong></li>
+</ol>
+<p>Такое разделение позволило сосредоточиться на двух основных задачах пользователя: найти подходящий вариант и успешно завершить аренду.</p>
+<h2>Процесс поиска жилья</h2>
+<h3 class="subhead">Цель</h3>
+<p>Помочь пользователю быстро находить подходящие варианты жилья с помощью удобного поиска, фильтрации и персонализированных рекомендаций.</p>
+<h3>1. Первое знакомство с приложением</h3>
+<p>Пользователь открывает приложение и проходит краткий онбординг.</p>
+<p>На этом этапе демонстрируются основные возможности платформы:</p>
+<ul>
+<li>поиск актуальных объектов;</li>
+<li>настройка фильтров;</li>
+<li>сохранение понравившихся вариантов;</li>
+<li>запись на просмотры;</li>
+<li>общение с владельцами жилья.</li>
+</ul>
+<p>После знакомства пользователь переходит к началу работы с платформой.</p>
+<figure class="fig fig--grid fig--n3 reveal" style="--n:4;">
+<div class="fig__cell"><img src="../assets/cases/mobile-rental/10-splash.jpg" width="900" height="1955" alt="Экран запуска Havener" loading="lazy"></div>
+<div class="fig__cell"><img src="../assets/cases/mobile-rental/11-onboarding1.jpg" width="900" height="1955" alt="Онбординг: «Homes That Match Your Life»" loading="lazy"></div>
+<div class="fig__cell"><img src="../assets/cases/mobile-rental/12-onboarding.jpg" width="900" height="1955" alt="Онбординг: «Save and Plan»" loading="lazy"></div>
+</figure>
+<h3>2. Авторизация</h3>
+<div class="side"><div class="side__text">
+<p>Для максимального снижения барьеров входа предусмотрено несколько сценариев:</p>
+<ul>
+<li>вход через Google;</li>
+<li>вход по электронной почте;</li>
+<li>регистрация нового аккаунта;</li>
+<li>гостевой режим без регистрации.</li>
+</ul>
+<p>Такой подход позволяет пользователю начать поиск жилья практически сразу.</p>
+</div>
+<figure class="fig fig--grid fig--n1 reveal" style="--n:1; max-width:300px">
+<div class="fig__cell"><div class="fig__tall fig__tall--fixed" tabindex="0"><img src="../assets/cases/mobile-rental/13-log_in.jpg" width="900" height="1955" alt="Вход: email, Google, гостевой режим" loading="lazy"></div></div>
+</figure>
+</div>
+<h3>3. Поиск недвижимости</h3>
+<p>Пользователь может начать поиск несколькими способами:</p>
+<h4>Через поисковую строку</h4>
+<p>Поиск по району, адресу или городу.</p>
+<h4>Через быстрые фильтры</h4>
+<p>Настройка параметров:</p>
+<ul>
+<li>стоимость аренды;</li>
+<li>район;</li>
+<li>наличие животных;</li>
+<li>количество комнат;</li>
+<li>тип жилья.</li>
+</ul>
+<h4>Через карту</h4>
+<p>Переключение между режимами:</p>
+<ul>
+<li>список объектов;</li>
+<li>карта объектов.</li>
+</ul>
+<h3>4. Работа с результатами</h3>
+<p>После настройки параметров пользователь получает список объектов.</p>
+<p>На этом этапе доступны:</p>
+<ul>
+<li>уточнение фильтров;</li>
+<li>изменение критериев поиска;</li>
+<li>просмотр карточек жилья;</li>
+<li>сохранение поискового запроса.</li>
+</ul>
+<p>Если результаты отсутствуют,<br>система предлагает рекомендации по расширению параметров поиска.</p>
+<h3>UX-решение</h3>
+<p>Поиск строится вокруг идеи:</p>
+<blockquote><p>Сначала показать релевантные варианты, затем постепенно уточнять выбор.</p></blockquote>
+<p>Это позволяет снизить когнитивную нагрузку и ускорить принятие решения.</p>
+<h2>Процесс бронирования</h2>
+<h3 class="subhead">Цель</h3>
+<p>Сделать путь от просмотра объекта до завершения аренды максимально прозрачным и понятным.</p>
+<h3>1. Просмотр объекта</h3>
+<div class="side"><div class="side__text">
+<p>Пользователь открывает карточку недвижимости.</p>
+<p>На странице представлены:</p>
+<ul>
+<li>основные фотографии;</li>
+<li>стоимость;</li>
+<li>ключевые характеристики;</li>
+<li>информация о районе;</li>
+<li>условия аренды.</li>
+</ul>
+</div>
+<figure class="fig fig--grid fig--n1 reveal" style="--n:1; max-width:300px">
+<div class="fig__cell"><div class="fig__tall fig__tall--fixed" tabindex="0"><img src="../assets/cases/mobile-rental/14-property_detailed_full.jpg" width="900" height="8517" alt="Полная карточка объекта (длинный экран)" loading="lazy"></div></div>
+</figure>
+</div>
+<span class="fig__hint">Длинные экраны прокручиваются внутри рамки.</span>
+<h3>2. Галерея и виртуальный тур</h3>
+<p>Для повышения доверия пользователь может изучить:</p>
+<ul>
+<li>дополнительные фотографии;</li>
+<li>виртуальный 3D-тур;</li>
+<li>интерьер и планировку объекта.</li>
+</ul>
+<p>Это помогает принять решение ещё до посещения жилья.</p>
+<figure class="fig fig--grid fig--n2 reveal" style="--n:4;">
+<div class="fig__cell"><img src="../assets/cases/mobile-rental/15-gallery.jpg" width="900" height="1955" alt="Галерея фотографий объекта" loading="lazy"></div>
+<div class="fig__cell"><img src="../assets/cases/mobile-rental/16-360_view.jpg" width="900" height="1955" alt="Виртуальный 3D-тур по объекту" loading="lazy"></div>
+</figure>
+<h3>3. Отзывы</h3>
+<p>Перед бронированием пользователь может ознакомиться с отзывами.</p>
+<p>Доступны:</p>
+<ul>
+<li>общий рейтинг;</li>
+<li>список всех отзывов;</li>
+<li>подробная информация об арендодателе.</li>
+</ul>
+<p>Также можно изучить историю предыдущих отзывов о владельце жилья.</p>
+<figure class="fig fig--grid fig--n2 reveal" style="--n:4;">
+<div class="fig__cell"><img src="../assets/cases/mobile-rental/17-all_reviews.jpg" width="900" height="1955" alt="Все отзывы об объекте" loading="lazy"></div>
+<div class="fig__cell"><img src="../assets/cases/mobile-rental/18-reviews-1.jpg" width="900" height="1955" alt="Отзывы: фильтр по оценке" loading="lazy"></div>
+</figure>
+<h3>4. Запрос на бронирование</h3>
+<div class="side"><div class="side__text">
+<p>После изучения объекта пользователь может:</p>
+<ul>
+<li>связаться с владельцем;</li>
+<li>назначить просмотр;</li>
+<li>отправить заявку на бронирование.</li>
+</ul>
+</div>
+<figure class="fig fig--grid fig--n1 reveal" style="--n:1; max-width:300px">
+<div class="fig__cell"><div class="fig__tall fig__tall--fixed" tabindex="0"><img src="../assets/cases/mobile-rental/19-all_reviews-previous_reviews.jpg" width="900" height="1955" alt="Предыдущие отзывы об арендодателе: рейтинг 4.8, 200 отзывов" loading="lazy"></div></div>
+</figure>
+</div>
+<h3>5. Подтверждение бронирования</h3>
+<p>Если платёж проходит успешно:</p>
+<ul>
+<li>бронирование подтверждается;</li>
+<li>объект появляется в разделе предстоящих поездок.</li>
+</ul>
+<p>Если платёж отклонён:</p>
+<ul>
+<li>пользователь получает уведомление;</li>
+<li>предлагается изменить способ оплаты.</li>
+</ul>
+<figure class="fig fig--grid fig--n4 reveal" style="--n:4;">
+<div class="fig__cell"><img src="../assets/cases/mobile-rental/20-Active.jpg" width="900" height="1955" alt="Активное бронирование: «Enjoy Your Stay»" loading="lazy"></div>
+<div class="fig__cell"><img src="../assets/cases/mobile-rental/21-Booking_Confirmed.jpg" width="900" height="1955" alt="Подтверждение бронирования" loading="lazy"></div>
+<div class="fig__cell"><img src="../assets/cases/mobile-rental/22-Upcoming_stay.jpg" width="900" height="1955" alt="Предстоящее проживание: детали бронирования" loading="lazy"></div>
+<div class="fig__cell"><img src="../assets/cases/mobile-rental/23-Thanks_for_staying_.jpg" width="900" height="1955" alt="Завершение проживания: «Thanks for Staying»" loading="lazy"></div>
+</figure>
+<h3>6. Предстоящее проживание</h3>
+<p>До начала аренды пользователь может:</p>
+<ul>
+<li>просматривать детали бронирования;</li>
+<li>получать уведомления;</li>
+<li>связываться с владельцем.</li>
+</ul>
+<h3>7. Активное проживание</h3>
+<p>Во время проживания доступны дополнительные действия:</p>
+<ul>
+<li>связаться с владельцем;</li>
+<li>продлить аренду;</li>
+<li>сообщить о проблеме;</li>
+<li>получить поддержку.</li>
+</ul>
+<figure class="fig fig--grid fig--n4 reveal" style="--n:4;">
+<div class="fig__cell"><img src="../assets/cases/mobile-rental/24-issue.jpg" width="900" height="1955" alt="Сообщить о проблеме" loading="lazy"></div>
+<div class="fig__cell"><img src="../assets/cases/mobile-rental/25-contact_host.jpg" width="900" height="1955" alt="Чат с владельцем" loading="lazy"></div>
+<div class="fig__cell"><img src="../assets/cases/mobile-rental/26-Rate_Solution.jpg" width="900" height="1955" alt="Оценка решения проблемы" loading="lazy"></div>
+<div class="fig__cell"><img src="../assets/cases/mobile-rental/27-Resolution_Summary.jpg" width="900" height="1955" alt="Проблема решена: сводка" loading="lazy"></div>
+</figure>
+<h3>8. Завершение аренды</h3>
+<p>После завершения проживания пользователь может:</p>
+<ul>
+<li>оставить отзыв;</li>
+<li>сохранить объект в избранное;</li>
+<li>повторно забронировать жильё.</li>
+</ul>
+<figure class="fig fig--grid fig--n7 reveal" style="--n:4;">
+<div class="fig__cell"><img src="../assets/cases/mobile-rental/28-account.jpg" width="900" height="1955" alt="Профиль и настройки аккаунта" loading="lazy"></div>
+<div class="fig__cell"><img src="../assets/cases/mobile-rental/29-favorites-3.jpg" width="900" height="1955" alt="Сравнение двух объектов" loading="lazy"></div>
+<div class="fig__cell"><img src="../assets/cases/mobile-rental/30-favorites.jpg" width="900" height="1955" alt="Избранное: пустое состояние" loading="lazy"></div>
+<div class="fig__cell"><img src="../assets/cases/mobile-rental/31-feedback.jpg" width="900" height="1955" alt="Отзыв отправлен" loading="lazy"></div>
+<div class="fig__cell"><img src="../assets/cases/mobile-rental/32-favorites-1.jpg" width="900" height="1955" alt="Избранное: список объектов" loading="lazy"></div>
+<div class="fig__cell"><img src="../assets/cases/mobile-rental/33-add_review-1.jpg" width="900" height="1955" alt="Добавить отзыв: оценка" loading="lazy"></div>
+<div class="fig__cell"><img src="../assets/cases/mobile-rental/34-favorites-2.jpg" width="900" height="1955" alt="Избранное с выбором для сравнения" loading="lazy"></div>
+</figure>
+<h2>Основные UX-принципы</h2>
+<p>На основе пользовательского сценария были сформированы четыре ключевых принципа продукта:</p>
+<div class="cols">
+<div><p class="label">Быстрый старт</p>
+<p>Поиск жилья начинается без лишних действий благодаря гостевому режиму и упрощённой регистрации.</p>
+</div>
+<div><p class="label">Гибкий поиск</p>
+<p>Пользователь может искать жильё через карту, фильтры или текстовый запрос.</p>
+</div>
+<div><p class="label">Прозрачное бронирование</p>
+<p>На каждом этапе пользователь понимает текущее состояние процесса и дальнейшие действия.</p>
+</div>
+<div><p class="label">Поддержка полного цикла аренды</p>
+<p>Платформа сопровождает пользователя не только до момента бронирования, но и во время проживания и после его завершения.</p>
+</div>
+</div>
+<h2>Дизайн-подход</h2>
+<h3>Simplicity Over Complexity</h3>
+<p>Вместо демонстрации всех возможностей продукта одновременно интерфейс строится вокруг последовательного раскрытия информации.</p>
+<p>Пользователь получает только те данные, которые необходимы в текущий момент времени.</p>
+<p>Это снижает когнитивную нагрузку и ускоряет принятие решений.</p>
+<figure class="fig fig--grid fig--n2 fig--pages reveal" style="--n:2;">
+<div class="fig__cell" style="grid-column:1/-1"><img src="../assets/cases/mobile-rental/35-63c2a72c-0b5f-4c12-9b06-5271f0bee0d8.jpg" width="2000" height="1123" alt="Adding Made Effortless: сценарий добавления объекта владельцем" loading="lazy"></div>
+<div class="fig__cell"><div class="fig__tall" tabindex="0"><img src="../assets/cases/mobile-rental/36-home_screen.jpg" width="900" height="1470" alt="Главный экран приложения на телефоне" loading="lazy"></div></div>
+</figure>
+<h2>Информационная архитектура</h2>
+<p>Одной из главных задач стало построение понятной структуры продукта.</p>
+<p>Была сформирована система, которая объединяет:</p>
+<ul>
+<li>поиск объектов;</li>
+<li>фильтрацию;</li>
+<li>просмотр карточек;</li>
+</ul>
+<p>Каждый сценарий логически связан со следующим и поддерживает непрерывный пользовательский поток.</p>
+<figure class="fig fig--grid fig--n5 reveal" style="--n:4;">
+<div class="fig__cell"><img src="../assets/cases/mobile-rental/37-recent_serch.jpg" width="900" height="1955" alt="Поиск: недавние запросы" loading="lazy"></div>
+<div class="fig__cell"><img src="../assets/cases/mobile-rental/38-Map.jpg" width="880" height="1912" alt="Режим карты с ценами объектов" loading="lazy"></div>
+<div class="fig__cell"><img src="../assets/cases/mobile-rental/39-recent_serch-1.jpg" width="900" height="1955" alt="Поиск: сохранённые запросы" loading="lazy"></div>
+<div class="fig__cell"><img src="../assets/cases/mobile-rental/40-notification-list.jpg" width="900" height="1955" alt="Уведомления с фильтром" loading="lazy"></div>
+<div class="fig__cell"><img src="../assets/cases/mobile-rental/41-filter.jpg" width="900" height="1955" alt="Фильтры: тип жилья, цена, отзывы, локация" loading="lazy"></div>
+</figure>
+<h2>Главный экран</h2>
+<div class="side"><div class="side__text">
+<p>Главный экран выступает точкой входа в продукт.</p>
+<p>Основная задача — помочь пользователю быстро сформулировать запрос и перейти к поиску жилья.</p>
+<p>Приоритет был отдан:</p>
+<ul>
+<li>понятной структуре;</li>
+<li>крупным действиям;</li>
+<li>быстрому старту поиска.</li>
+</ul>
+</div>
+<figure class="fig fig--grid fig--n1 reveal" style="--n:1; max-width:300px">
+<div class="fig__cell"><div class="fig__tall fig__tall--fixed" tabindex="0"><img src="../assets/cases/mobile-rental/42-home.jpg" width="900" height="1955" alt="Главный экран: быстрые категории и недавние поиски" loading="lazy"></div></div>
+</figure>
+</div>
+<h2>Каталог объектов</h2>
+<div class="side"><div class="side__text">
+<p>Каталог был спроектирован как инструмент принятия решений, а не просто список объявлений.</p>
+<p>Каждая карточка содержит только наиболее важную информацию:</p>
+<ul>
+<li>стоимость;</li>
+<li>расположение;</li>
+<li>рейтинг;</li>
+<li>фотографии;</li>
+<li>ключевые характеристики.</li>
+</ul>
+<p>Такой подход позволяет быстрее оценивать варианты и сокращает время на просмотр.</p>
+</div>
+<figure class="fig fig--grid fig--n1 reveal" style="--n:1; max-width:300px">
+<div class="fig__cell"><div class="fig__tall fig__tall--fixed" tabindex="0"><img src="../assets/cases/mobile-rental/43-db37d91d-88ea-4c88-8c42-44cded60c339.jpg" width="880" height="3338" alt="Каталог объектов (длинный экран)" loading="lazy"></div></div>
+</figure>
+</div>
+<h2>Визуальная система</h2>
+<p>Визуальный язык проекта строится вокруг ощущения простоты, надежности и комфорта.</p>
+<p>Основные характеристики:</p>
+<ul>
+<li>минималистичный интерфейс;</li>
+<li>спокойная цветовая палитра;</li>
+<li>акцент на контенте;</li>
+<li>крупная типографика;</li>
+<li>высокая читаемость.</li>
+</ul>
+<p>Главным визуальным элементом становятся сами объекты недвижимости и контекст их использования.</p>
+<h2>Дизайн-система</h2>
+<p>Для обеспечения консистентности интерфейса была сформирована базовая дизайн-система.</p>
+<p>Она включает:</p>
+<ul>
+<li>типографическую шкалу;</li>
+<li>систему цветов;</li>
+<li>набор компонентов;</li>
+<li>правила построения экранов;</li>
+<li>состояния интерфейса.</li>
+</ul>
+<p>Это позволяет масштабировать продукт и поддерживать единый пользовательский опыт.</p>
+<figure class="fig fig--grid fig--n1 fig--pages reveal" style="--n:1; max-width:760px">
+<div class="fig__cell"><div class="fig__tall" tabindex="0"><img src="../assets/cases/mobile-rental/44-visual_style_2.jpg" width="900" height="3067" alt="Визуальная система: цвета, типографика, компоненты" loading="lazy"></div></div>
+</figure>
+<div class="cs-result">
+<h2>Результат</h2>
+<p>Пользовательский путь сведён к двум чётко разделённым этапам — поиску и бронированию — вместо единого перегруженного сценария, характерного для Zillow или Trulia.</p>
+<p>Ключевое решение основано на выводе из анализа пути: наибольшая потеря внимания происходит между просмотром объекта и принятием решения. Именно этот участок получил наибольшую детализацию — галерея, 3D-тур, отзывы и история арендодателя доступны прямо на карточке объекта, без перехода на отдельные экраны.</p>
+<p>Гостевой режим и вход в один клик убирают барьер входа до начала поиска. Дизайн-система, выстроенная поверх этого флоу, делает решение воспроизводимым для новых экранов, а не разовым макетом.</p>
+</div>
+      </div>
+    </div>
+  </article>
+
+  <nav class="cs-next" aria-label="Другие проекты">
+    <div class="wrap">
+      <div class="cs-next__grid">
+        <a class="cs-next__link cs-next__link--prev" href="finance.html">
+          <span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 8H3M7 4 3 8l4 4"/></svg> Предыдущий проект</span>
+          <strong>Data-driven Personal Finance Tool</strong>
+          <img src="../assets/cases/finance/01-hero.jpg" alt="" loading="lazy">
+        </a>
+        <a class="cs-next__link" href="equipment-rental.html">
+          <span>Следующий проект <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+          <strong>Equipment Rental Platform</strong>
+          <img src="../assets/web/equipment-rental.jpg" alt="" loading="lazy">
+        </a>
+      </div>
+      <div class="cs-contact">
+        <p>Ищу проекты, связанные с проектированием цифровых продуктов</p>
+        <div>
+          <a class="btn btn--light" href="mailto:artemdesigner.work@gmail.com">Написать на почту</a>
+          <a class="btn btn--outline-light" href="https://t.me/Artfreelancer" target="_blank" rel="noopener">Telegram</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <span>© <span class="num">2026</span> Артем Мута</span>
+    <nav aria-label="Контакты">
+      <a href="mailto:artemdesigner.work@gmail.com">artemdesigner.work@gmail.com</a>
+      <a href="https://t.me/Artfreelancer" target="_blank" rel="noopener">Telegram</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  document.documentElement.classList.add('js');
+  const els = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      for (const e of entries) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+    els.forEach(el => io.observe(el));
+  } else { els.forEach(el => el.classList.add('in')); }
+</script>
+</body>
+</html>
