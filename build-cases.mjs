@@ -171,7 +171,6 @@ function page(c, prev, next) {
     <a class="brand" href="../index.html" aria-label="Артем Мута — на главную">
       <span>Артем Мута</span>
     </a>
-    <a class="nav__back" href="../index.html#projects">${ARROW_L} Все проекты</a>
     <a class="btn btn--sm" href="mailto:artemdesigner.work@gmail.com">Написать ${ARROW_R}</a>
   </div>
 </header>
@@ -181,10 +180,11 @@ function page(c, prev, next) {
     <div class="wrap">
       <div class="cs-hero__head">
         <div class="cs-hero__title">
-          <h1 id="cs-title" class="reveal" style="--i:0">${esc(c.title)}</h1>
-          <p class="lede reveal" style="--i:1">${esc(c.lead)}</p>
+          <a class="cs-back reveal" href="../index.html#projects" style="--i:0">${ARROW_L} Все проекты</a>
+          <h1 id="cs-title" class="reveal" style="--i:1">${esc(c.title)}</h1>
+          <p class="lede reveal" style="--i:2">${esc(c.lead)}</p>
         </div>
-        <dl class="cs-meta reveal" style="--i:2">
+        <dl class="cs-meta reveal" style="--i:3">
           <div><dt>Роль</dt><dd>${esc(c.role)}</dd></div>
           <div><dt>Платформа</dt><dd>${esc(c.platform)}</dd></div>
           <div><dt>Фокус</dt><dd>${esc(c.focus)}</dd></div>
