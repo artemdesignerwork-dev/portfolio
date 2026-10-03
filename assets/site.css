@@ -107,7 +107,6 @@ h4 { font-size: 15px; font-weight: 600; letter-spacing: 0; color: var(--ink-3); 
 .hero .grid { align-items: start; }
 .hero__text { grid-column: 1 / span 7; display: flex; flex-direction: column; gap: 28px; }
 .hero__text h1 { max-width: 14ch; }
-.hero__text h1 .role { display: block; color: var(--ink-2); font-weight: 700; }
 .hero__copy { display: flex; flex-direction: column; gap: 18px; max-width: 58ch; }
 .hero__contacts { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
 .hero__media { grid-column: 8 / span 5; position: relative; margin-top: calc(0.16 * clamp(40px, 5.6vw, 76px)); }
