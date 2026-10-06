@@ -1,3 +1,4 @@
 source/
 .impeccable/
 node_modules/
+.claude/settings.local.json
