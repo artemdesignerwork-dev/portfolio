@@ -1,0 +1,26 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "portfolio-wfzd.vercel.app"
+        }
+      ],
+      "destination": "https://artemmdesign.ru/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "artemmuta.vercel.app"
+        }
+      ],
+      "destination": "https://artemmdesign.ru/:path*",
+      "permanent": true
+    }
+  ]
+}

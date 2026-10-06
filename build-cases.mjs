@@ -7,6 +7,7 @@ import { fileURLToPath } from 'url';
 const ROOT = path.dirname(fileURLToPath(import.meta.url));
 const CONTENT = path.join(ROOT, 'content');
 const OUT = path.join(ROOT, 'cases');
+const SITE = 'https://artemmdesign.ru'; // production domain for canonical / Open Graph URLs
 fs.mkdirSync(OUT, { recursive: true });
 
 // ---------- helpers ----------
@@ -158,7 +159,10 @@ function page(c, prev, next) {
 <meta name="description" content="${esc(c.lead)}">
 <meta property="og:title" content="${esc(c.title)} — кейс Артема Муты">
 <meta property="og:description" content="${esc(c.lead)}">
-<meta property="og:image" content="${heroSrc}">
+<meta property="og:type" content="article">
+<meta property="og:url" content="${SITE}/cases/${c.slug}.html">
+<meta property="og:image" content="${SITE}/${heroSrc.split('../').join('')}">
+<link rel="canonical" href="${SITE}/cases/${c.slug}.html">
 <link rel="preload" href="../assets/fonts/golos-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../assets/fonts/golos-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
