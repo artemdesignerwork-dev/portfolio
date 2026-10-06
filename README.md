@@ -12,7 +12,11 @@ npx --yes http-server . -p 5173 -c-1
 
 ## Деплой
 
-Загрузить папку целиком на любой статический хостинг — GitHub Pages, Netlify (drag-and-drop), Vercel, Cloudflare Pages. Корень сайта = эта папка. Папку `source/` (оригиналы картинок) и `.impeccable/` можно не выкладывать.
+Сайт живёт на **https://artemmdesign.ru** — GitHub Pages из ветки `main` (корень репозитория), домен задан файлом `CNAME`, HTTPS — Let’s Encrypt от GitHub. DNS у Sprinthost: 4 A-записи `@` на 185.199.108–111.153 и CNAME `www` → `artemdesignerwork-dev.github.io`.
+
+Обновить сайт: поправить файлы (и `node build-cases.mjs` после правок в `content/`) → `git push` в `main`. Через минуту изменения на домене.
+
+Старые адреса на Vercel (`portfolio-wfzd.vercel.app`, `artemmuta.vercel.app`) постоянно перенаправляют на новый домен — правило в `vercel.json`.
 
 ## Структура
 
