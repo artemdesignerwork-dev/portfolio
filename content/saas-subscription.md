@@ -8,7 +8,7 @@ platform: Web Platform
 focus: UX, UI, Information Architecture, Visual Design
 hero: ../assets/web/saas-subscription.jpg
 heroAlt: Планшет с интерфейсом Weld: предстоящие платежи, лента активности и правила автоматизации
-order: 4
+order: 5
 ---
 # О проекте
 Количество цифровых подписок стремительно растет.

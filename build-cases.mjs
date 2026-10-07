@@ -64,7 +64,7 @@ function render(body, slug) {
     if (!images.length) return;
     const items = images.map((im) => {
       const f = imgFile(im.src); const d = jpegSize(f); const s = srcSize(f) || d; const r = d.h / d.w;
-      const kind = r > 0.95 && s.w >= 1500 ? "page" : r > 1.15 ? "phone" : "wide";
+      const kind = im.wide ? "wide" : r > 0.95 && s.w >= 1500 ? "page" : r > 1.15 ? "phone" : "wide";
       return { ...im, ...d, kind, tall: im.forceTall || (kind === "phone" ? r > 2.4 : kind === "page" && r > 1.6), portrait: kind !== "wide" };
     });
     const n = items.length;
@@ -106,7 +106,7 @@ function render(body, slug) {
     const line = raw.trim();
     if (!line) { closeList(); continue; }
 
-    if (line.startsWith('![')) { closeList(); const m = line.match(/^!\[([^\]]*)\]\(([^)]+)\)(\{(tall|strip)\})?/); images.push({ alt: m[1], src: m[2], forceTall: m[4] === 'tall', strip: m[4] === 'strip' }); continue; }
+    if (line.startsWith('![')) { closeList(); const m = line.match(/^!\[([^\]]*)\]\(([^)]+)\)(\{(tall|strip|wide)\})?/); images.push({ alt: m[1], src: m[2], forceTall: m[4] === 'tall', strip: m[4] === 'strip', wide: m[4] === 'wide' }); continue; }
     flushImages();
 
     if (line === ':::callout') { closeList(); out.push('<div class="callout">'); inCallout = true; continue; }

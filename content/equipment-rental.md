@@ -9,7 +9,7 @@ focus: UX, UI, Information Architecture, Art Direction, Visual Design
 hero: ../assets/web/equipment-rental.jpg
 heroAlt: Главный экран Helio — «Аренда оборудования для каждого этапа строительства», ножничный подъёмник на фоне стройки
 heroPos: center top
-order: 2
+order: 3
 ---
 # О проекте
 Helio — исследование того, каким может стать современный цифровой сервис аренды строительной техники.
