@@ -57,7 +57,7 @@ function render(body, slug) {
   let images = [];          // pending consecutive images
   let inCols = false, colOpen = false;
   let inPersona = false, personaGrid = false, personaCell = false;
-  let inCallout = false, inResult = false, lastLevel = 1, hintShown = false;
+  let inCallout = false, inResult = false, lastLevel = 1;
 
   const closeList = () => { if (list) { out.push(`</${list}>`); list = null; } };
   const flushImages = () => {
@@ -78,22 +78,23 @@ function render(body, slug) {
       const cols = n === 1 ? 1 : (strip || (kinds.size === 1 && kinds.has("phone"))) ? 4 : 2;
       const solo = n !== 1 ? "" : items[0].kind === "phone" ? " max-width:300px" : items[0].tall ? " max-width:760px" : " max-width:900px";
       const hasTall = items.some((i) => i.tall);
+      // a cropped long screen next to an uncropped one: the uncropped image sets the row height
+      const mixed = hasTall && !strip && items.some((i) => !i.tall && i.portrait);
       // a lone phone screen sits beside the paragraph(s) that introduced it, not under them
       let sideStart = -1;
       if (soloPhone) { for (let k = out.length - 1; k >= 0; k--) { if (/^<h[23]/.test(out[k])) { sideStart = k + 1; break; } if (/^<\/?(figure|div|section)/.test(out[k])) break; } }
       if (sideStart >= 0 && sideStart < out.length) { out.splice(sideStart, 0, `<div class="side"><div class="side__text">`); out.push(`</div>`); }
-      out.push(`<figure class="fig fig--grid fig--n${n}${kinds.has("page") ? " fig--pages" : ""}${strip ? " fig--strip" : ""} reveal" style="--n:${cols};${solo}">`);
+      out.push(`<figure class="fig fig--grid fig--n${n}${kinds.has("page") ? " fig--pages" : ""}${strip ? " fig--strip" : ""}${mixed ? " fig--mixed" : ""} reveal" style="--n:${cols};${solo}">`);
       for (const im of items) {
         const span = !im.portrait && n > 1 && cols > 1 ? ' style="grid-column:1/-1"' : '';
         const cellCls = !im.portrait && strip ? "fig__cell fig__cell--wide" : "fig__cell";
         const img = `<img src="${imgPath(im.src)}" width="${im.w}" height="${im.h}" alt="${esc(im.alt)}" loading="lazy">`;
         const framed = im.tall || ((strip || soloPhone) && im.portrait);
         const fixed = (strip || soloPhone) && im.portrait;
-        out.push(framed ? `<div class="fig__cell"${span}><div class="fig__tall${fixed ? " fig__tall--fixed" : ""}" tabindex="0">${img}</div></div>` : `<div class="${cellCls}"${span}>${img}</div>`);
+        out.push(framed ? `<div class="fig__cell"${span}><div class="fig__tall${fixed ? " fig__tall--fixed" : ""}">${img}</div></div>` : `<div class="${cellCls}"${span}>${img}</div>`);
       }
       out.push(`</figure>`);
       if (sideStart >= 0) out.push(`</div>`);
-      if (hasTall && !hintShown) { out.push(`<span class="fig__hint">Длинные экраны прокручиваются внутри рамки.</span>`); hintShown = true; }
     }
     images = [];
   };
