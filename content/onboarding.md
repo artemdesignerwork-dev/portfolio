@@ -8,7 +8,7 @@ platform: Mobile App (iOS)
 focus: UX design, User Flows, UI Design, Prototyping
 hero: 01-hero.jpg
 heroAlt: Смартфон в руках с экраном приветствия приложения Mevo
-order: 4
+order: 5
 ---
 # О проекте
 Первые недели работы во многом определяют успешность интеграции сотрудника в компанию.

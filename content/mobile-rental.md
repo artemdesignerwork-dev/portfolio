@@ -8,7 +8,7 @@ platform: Mobile app (iOS / Android)
 focus: UX, UI, Information Architecture, Visual Design
 hero: 01-intro.jpg
 heroAlt: Обложка Havener: «Find your stay — faster, smarter, easier»
-order: 2
+order: 3
 ---
 # Контекст
 Рынок аренды жилья предлагает огромное количество вариантов, однако сам процесс поиска и бронирования часто остается сложным и фрагментированным.
