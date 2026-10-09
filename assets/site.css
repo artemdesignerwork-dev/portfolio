@@ -107,6 +107,12 @@ h4 { font-size: 15px; font-weight: 600; letter-spacing: 0; color: var(--ink-3); 
 .hero .grid { align-items: start; }
 .hero__text { grid-column: 1 / span 7; display: flex; flex-direction: column; gap: 28px; }
 .hero__text h1 { max-width: 14ch; }
+/* hero title: outline drawing, then the solid fill returns */
+.draw-title { position: relative; }
+.js .draw-title { color: transparent; transition: color .7s var(--ease); }
+.js .draw-title.drawn { color: var(--ink); }
+.draw-title__svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.draw-title__svg text { fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linejoin: round; stroke-linecap: round; }
 .hero__copy { display: flex; flex-direction: column; gap: 18px; max-width: 58ch; }
 .hero__contacts { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
 .hero__media { grid-column: 8 / span 5; position: relative; margin-top: calc(0.16 * clamp(40px, 5.6vw, 76px)); }

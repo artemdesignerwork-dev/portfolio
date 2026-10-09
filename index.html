@@ -15,6 +15,7 @@
 <link rel="preload" href="assets/fonts/golos-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/site.css">
+<script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
 
@@ -42,7 +43,7 @@
   <section class="hero" aria-labelledby="hero-title">
     <div class="wrap grid">
       <div class="hero__text">
-        <h1 id="hero-title" class="reveal" style="--i:0">Product/UI&#8209;UX дизайнер</h1>
+        <h1 id="hero-title" class="draw-title">Product/UI&#8209;UX дизайнер</h1>
         <div class="hero__copy">
           <p class="lede reveal" style="--i:1">Проектирую сложные цифровые продукты — SaaS-платформы, финтех-инструменты, каталоги и многошаговые сценарии — там, где удобство интерфейса напрямую влияет на скорость работы пользователей и эффективность бизнеса.</p>
           <p class="muted reveal" style="--i:2">С 2025 года веду самостоятельную практику в продуктовом дизайне, беру полный цикл — от исследования и сценариев до дизайн-системы. До этого — с 2018 года опыт в вебе: сайты, лендинги, e-commerce.</p>
@@ -401,6 +402,51 @@
   } else {
     els.forEach(el => el.classList.add('in'));
   }
+
+  // Hero title: glyph outlines draw in, then the solid fill returns (idea: 21st.dev "path drawing" hero).
+  (async () => {
+    const h = document.querySelector('.draw-title');
+    if (!h) return;
+    const finish = () => h.classList.add('drawn');
+    try {
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) return finish();
+      if (document.fonts) await document.fonts.ready;
+      const text = h.firstChild;
+      if (!text || text.nodeType !== 3) return finish();
+      const cs = getComputedStyle(h);
+      const ctx = document.createElement('canvas').getContext('2d');
+      ctx.font = cs.fontWeight + ' ' + cs.fontSize + ' ' + cs.fontFamily;
+      const ascent = ctx.measureText('Hд').fontBoundingBoxAscent;
+      if (!ascent) return finish();
+      const box = h.getBoundingClientRect(), range = document.createRange();
+      const xs = [], ys = [], glyphs = [];
+      for (let i = 0; i < text.length; i++) {
+        const ch = text.data[i];
+        if (/\s/.test(ch)) continue;
+        range.setStart(text, i); range.setEnd(text, i + 1);
+        const r = range.getClientRects()[0];
+        if (!r) continue;
+        xs.push((r.left - box.left).toFixed(2)); ys.push((r.top - box.top + ascent).toFixed(2)); glyphs.push(ch);
+      }
+      const NS = 'http://www.w3.org/2000/svg';
+      const svg = document.createElementNS(NS, 'svg');
+      svg.setAttribute('class', 'draw-title__svg'); svg.setAttribute('aria-hidden', 'true');
+      svg.style.color = getComputedStyle(document.documentElement).getPropertyValue('--ink').trim() || '#121212';
+      const t = document.createElementNS(NS, 'text');
+      t.setAttribute('x', xs.join(' ')); t.setAttribute('y', ys.join(' '));
+      t.style.font = ctx.font;
+      t.textContent = glyphs.join('');
+      svg.appendChild(t); h.appendChild(svg);
+      const dash = parseFloat(cs.fontSize) * 3.5; // just covers the longest glyph contour (measured)
+      t.style.strokeDasharray = dash + ' ' + dash;
+      const draw = t.animate([{ strokeDashoffset: dash }, { strokeDashoffset: 0 }], { duration: 1900, easing: 'cubic-bezier(.45,0,.2,1)', fill: 'forwards' });
+      draw.onfinish = () => {
+        finish();
+        svg.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 700, delay: 250, fill: 'forwards' }).onfinish = () => svg.remove();
+      };
+      addEventListener('resize', () => draw.finish(), { once: true });
+    } catch (e) { finish(); }
+  })();
 </script>
 </body>
 </html>
