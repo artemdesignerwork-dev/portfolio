@@ -47,7 +47,14 @@ function parseFront(md) {
 }
 
 // ---------- markdown → html ----------
-function render(body, slug) {
+function render(body, slug, site = '', phoneBar = '') {
+  // {phone} / {browser}: show a bare screenshot inside a device frame (site: front-matter goes in the address bar).
+  // phonebar: <colour> adds an iOS status bar above screenshots that don't have one (web pages).
+  const device = (im, inner) => im.device === 'phone'
+    ? `<div class="device device--phone${phoneBar ? ' device--statusbar' : ''}"${phoneBar ? ` style="--bar:${esc(phoneBar)}"` : ''}><div class="device__screen">${phoneBar ? '<span class="device__status" aria-hidden="true">9:41</span>' : ''}${inner}</div></div>`
+    : im.device === 'browser'
+      ? `<div class="device device--browser"><div class="device__bar" aria-hidden="true"><i></i><i></i><i></i>${site ? `<span>${esc(site)}</span>` : '<span></span>'}</div><div class="device__screen">${inner}</div></div>`
+      : inner;
   const imgPath = (src) => src.startsWith('../') ? src : `../assets/cases/${slug}/${src}`;
   const imgFile = (src) => src.startsWith('../') ? path.join(OUT, src) : path.join(ROOT, 'assets/cases', slug, src);
 
@@ -64,13 +71,14 @@ function render(body, slug) {
     if (!images.length) return;
     const items = images.map((im) => {
       const f = imgFile(im.src); const d = jpegSize(f); const s = srcSize(f) || d; const r = d.h / d.w;
-      const kind = im.wide ? "wide" : im.page ? "page" : r > 0.95 && s.w >= 1500 ? "page" : r > 1.15 ? "phone" : "wide";
-      return { ...im, ...d, kind, tall: im.forceTall || (kind === "phone" ? r > 2.4 : kind === "page" && r > 1.6), portrait: kind !== "wide" };
+      const kind = im.device === "phone" ? "phone" : im.wide ? "wide" : im.page ? "page" : r > 0.95 && s.w >= 1500 ? "page" : r > 1.15 ? "phone" : "wide";
+      // a phone frame always shows one screen-height viewport, so it never needs the long-screen crop
+      return { ...im, ...d, kind, tall: im.device === "phone" ? false : im.forceTall || (kind === "phone" ? r > 2.4 : kind === "page" && r > 1.6), portrait: kind !== "wide" };
     });
     const n = items.length;
     if (n === 1 && !items[0].portrait) {
       const im = items[0];
-      out.push(`<figure class="fig fig--single reveal"><img src="${imgPath(im.src)}" width="${im.w}" height="${im.h}" alt="${esc(im.alt)}" loading="lazy"></figure>`);
+      out.push(`<figure class="fig fig--single reveal">${device(im, `<img src="${imgPath(im.src)}" width="${im.w}" height="${im.h}" alt="${esc(im.alt)}" loading="lazy">`)}</figure>`);
     } else {
       const kinds = new Set(items.map((i) => i.kind));
       const strip = items.some((i) => i.strip);
@@ -89,9 +97,10 @@ function render(body, slug) {
         const span = !im.portrait && n > 1 && cols > 1 ? ' style="grid-column:1/-1"' : '';
         const cellCls = !im.portrait && strip ? "fig__cell fig__cell--wide" : "fig__cell";
         const img = `<img src="${imgPath(im.src)}" width="${im.w}" height="${im.h}" alt="${esc(im.alt)}" loading="lazy">`;
-        const framed = im.tall || ((strip || soloPhone) && im.portrait);
+        const framed = im.tall || (im.device !== "phone" && (strip || soloPhone) && im.portrait);
         const fixed = (strip || soloPhone) && im.portrait;
-        out.push(framed ? `<div class="fig__cell"${span}><div class="fig__tall${fixed ? " fig__tall--fixed" : ""}">${img}</div></div>` : `<div class="${cellCls}"${span}>${img}</div>`);
+        const inner = framed ? `<div class="fig__tall${fixed ? " fig__tall--fixed" : ""}">${img}</div>` : img;
+        out.push(`<div class="${framed ? "fig__cell" : cellCls}"${span}>${device(im, inner)}</div>`);
       }
       out.push(`</figure>`);
       if (sideStart >= 0) out.push(`</div>`);
@@ -107,7 +116,7 @@ function render(body, slug) {
     const line = raw.trim();
     if (!line) { closeList(); continue; }
 
-    if (line.startsWith('![')) { closeList(); const m = line.match(/^!\[([^\]]*)\]\(([^)]+)\)(\{(tall|strip|wide|page)\})?/); images.push({ alt: m[1], src: m[2], forceTall: m[4] === 'tall', strip: m[4] === 'strip', wide: m[4] === 'wide', page: m[4] === 'page' }); continue; }
+    if (line.startsWith('![')) { closeList(); const m = line.match(/^!\[([^\]]*)\]\(([^)]+)\)((?:\{[a-z]+\})*)/); const fl = new Set((m[3].match(/[a-z]+/g) || [])); images.push({ alt: m[1], src: m[2], forceTall: fl.has('tall'), strip: fl.has('strip'), wide: fl.has('wide'), page: fl.has('page'), device: fl.has('phone') ? 'phone' : fl.has('browser') ? 'browser' : null }); continue; }
     flushImages();
 
     if (line === ':::callout') { closeList(); out.push('<div class="callout">'); inCallout = true; continue; }
@@ -262,7 +271,7 @@ ${c.html}
 // ---------- build ----------
 const cases = fs.readdirSync(CONTENT).filter((f) => f.endsWith('.md')).map((f) => {
   const { meta, body } = parseFront(fs.readFileSync(path.join(CONTENT, f), 'utf8'));
-  return { ...meta, order: Number(meta.order), html: render(body, meta.slug) };
+  return { ...meta, order: Number(meta.order), html: render(body, meta.slug, meta.site, meta.phonebar) };
 }).sort((a, b) => a.order - b.order);
 
 for (let i = 0; i < cases.length; i++) {
