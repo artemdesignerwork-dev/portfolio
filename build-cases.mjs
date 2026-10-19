@@ -164,7 +164,8 @@ function page(c, prev, next) {
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">${c.hidden ? `
+<meta name="robots" content="noindex">` : ''}
 <title>${esc(c.title)} — Артем Мута</title>
 <meta name="description" content="${esc(c.lead)}">
 <meta property="og:title" content="${esc(c.title)} — кейс Артема Муты">
@@ -220,7 +221,7 @@ ${c.html}
 
   <nav class="cs-next" aria-label="Другие проекты">
     <div class="wrap">
-      <div class="cs-next__grid">
+${c.hidden ? `      <a class="cs-back" href="../index.html#projects">${ARROW_L} Все проекты</a>` : `      <div class="cs-next__grid">
         <a class="cs-next__link cs-next__link--prev" href="${prev.slug}.html">
           <span>${ARROW_L} Предыдущий проект</span>
           <strong>${esc(prev.title)}</strong>
@@ -231,7 +232,7 @@ ${c.html}
           <strong>${esc(next.title)}</strong>
           <img src="${thumb(next)}" alt="" loading="lazy">
         </a>
-      </div>
+      </div>`}
       <div class="cs-contact">
         <p>Ищу проекты, связанные с проектированием цифровых продуктов</p>
         <div>
@@ -271,13 +272,16 @@ ${c.html}
 // ---------- build ----------
 const cases = fs.readdirSync(CONTENT).filter((f) => f.endsWith('.md')).map((f) => {
   const { meta, body } = parseFront(fs.readFileSync(path.join(CONTENT, f), 'utf8'));
-  return { ...meta, order: Number(meta.order), html: render(body, meta.slug, meta.site, meta.phonebar) };
+  return { ...meta, order: Number(meta.order), hidden: meta.hidden === 'true', html: render(body, meta.slug, meta.site, meta.phonebar) };
 }).sort((a, b) => a.order - b.order);
 
-for (let i = 0; i < cases.length; i++) {
-  const prev = cases[(i - 1 + cases.length) % cases.length];
-  const next = cases[(i + 1) % cases.length];
-  const file = path.join(OUT, `${cases[i].slug}.html`);
-  fs.writeFileSync(file, page(cases[i], prev, next));
+// hidden: true — page still builds (open by direct link) but is noindex and left out of the prev/next ring
+const ring = cases.filter((c) => !c.hidden);
+for (const c of cases) {
+  const i = ring.indexOf(c);
+  const prev = i < 0 ? null : ring[(i - 1 + ring.length) % ring.length];
+  const next = i < 0 ? null : ring[(i + 1) % ring.length];
+  const file = path.join(OUT, `${c.slug}.html`);
+  fs.writeFileSync(file, page(c, prev, next));
   console.log('built', path.relative(ROOT, file), Math.round(fs.statSync(file).size / 1024) + 'KB');
 }
