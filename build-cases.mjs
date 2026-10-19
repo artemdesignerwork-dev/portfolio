@@ -202,7 +202,8 @@ function page(c, prev, next) {
         <dl class="cs-meta reveal" style="--i:3">
           <div><dt>Роль</dt><dd>${esc(c.role)}</dd></div>
           <div><dt>Платформа</dt><dd>${esc(c.platform)}</dd></div>
-          <div><dt>Фокус</dt><dd>${esc(c.focus)}</dd></div>
+          <div><dt>Фокус</dt><dd>${esc(c.focus)}</dd></div>${c.type ? `
+          <div><dt>Тип проекта</dt><dd><ul class="case__bullets"><li>${esc(c.type)}</li></ul></dd></div>` : ''}
         </dl>
       </div>
       <figure class="cs-hero__media reveal" style="--i:2; --hero-ar:${heroAr}">
@@ -271,7 +272,8 @@ ${c.hidden ? `      <a class="cs-back" href="../index.html#projects">${ARROW_L} 
 
 // ---------- build ----------
 const cases = fs.readdirSync(CONTENT).filter((f) => f.endsWith('.md')).map((f) => {
-  const { meta, body } = parseFront(fs.readFileSync(path.join(CONTENT, f), 'utf8'));
+  // git may check files out with CRLF (core.autocrlf), the parser expects LF
+  const { meta, body } = parseFront(fs.readFileSync(path.join(CONTENT, f), 'utf8').replace(/\r\n/g, '\n'));
   return { ...meta, order: Number(meta.order), hidden: meta.hidden === 'true', html: render(body, meta.slug, meta.site, meta.phonebar) };
 }).sort((a, b) => a.order - b.order);
 

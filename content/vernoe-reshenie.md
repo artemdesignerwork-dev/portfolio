@@ -10,6 +10,7 @@ hero: 01-cover.jpg
 heroAlt: Первый экран сайта «Верное решение»: оффер «Одобрение банковской гарантии онлайн до 5 млн за 1 час», зелёный low-poly кристалл и преимущества
 heroPos: center top
 order: 2
+type: Клиентский проект
 site: vernoe-reshenie.ru
 phonebar: #2B2C2B
 ---

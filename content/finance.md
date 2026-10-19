@@ -8,8 +8,8 @@ platform: Web Platform
 focus: UX, UI, Product Design, Data Visualization, Dashboard Design
 hero: 01-hero.jpg
 heroAlt: Ноутбук с дашбордом Trace: баланс, график чистой стоимости и категории расходов
-order: 7
-hidden: true
+order: 6
+type: Концепт
 ---
 # О проекте
 Личные финансы становятся всё более сложными.
