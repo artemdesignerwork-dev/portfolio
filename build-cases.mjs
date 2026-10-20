@@ -202,8 +202,7 @@ function page(c, prev, next) {
         <dl class="cs-meta reveal" style="--i:3">
           <div><dt>Роль</dt><dd>${esc(c.role)}</dd></div>
           <div><dt>Платформа</dt><dd>${esc(c.platform)}</dd></div>
-          <div><dt>Фокус</dt><dd>${esc(c.focus)}</dd></div>${c.type ? `
-          <div><dt>Тип проекта</dt><dd><ul class="case__bullets"><li>${esc(c.type)}</li></ul></dd></div>` : ''}
+          <div><dt>Фокус</dt><dd>${esc(c.focus)}</dd></div>
         </dl>
       </div>
       <figure class="cs-hero__media reveal" style="--i:2; --hero-ar:${heroAr}">

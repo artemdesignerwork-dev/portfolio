@@ -71,10 +71,15 @@
     <div class="wrap">
       <div class="projects__head reveal">
         <h2 id="projects-title">Ключевые проекты</h2>
-        <p class="num">7 кейсов</p>
+        <p class="num" aria-live="polite">8 кейсов</p>
+      </div>
+      <div class="projects__filter" role="group" aria-label="Категория проектов" hidden>
+        <button class="btn btn--sm" type="button" data-filter="all" aria-pressed="true">Все</button>
+        <button class="btn btn--sm btn--ghost" type="button" data-filter="product" aria-pressed="false">Продуктовые сервисы</button>
+        <button class="btn btn--sm btn--ghost" type="button" data-filter="site" aria-pressed="false">Корпоративные сайты</button>
       </div>
 
-      <article class="case reveal">
+      <article class="case reveal" data-category="product">
         <div class="case__media">
           <a class="case__frame" href="cases/odix.html" tabindex="-1">
             <img src="assets/web/odix.jpg" width="1800" height="1440" alt="Главный экран Odix: KPI сети ресторанов и автоматический топ-3 проблемных филиалов" loading="lazy">
@@ -104,7 +109,7 @@
         </div>
       </article>
 
-      <article class="case reveal">
+      <article class="case reveal" data-category="site">
         <div class="case__media">
           <a class="case__frame" href="cases/vernoe-reshenie.html" tabindex="-1">
             <img src="assets/web/vernoe-reshenie.jpg" width="1800" height="1440" alt="Сайт «Верное решение» на десктопе и мобильном: первый экран с оффером банковских гарантий" loading="lazy">
@@ -134,7 +139,7 @@
         </div>
       </article>
 
-      <article class="case reveal">
+      <article class="case reveal" data-category="product">
         <div class="case__media">
           <a class="case__frame" href="cases/saas-subscription.html" tabindex="-1">
             <img src="assets/web/saas-subscription.jpg" width="1600" height="1046" alt="Планшет с интерфейсом управления подписками: предстоящие платежи, лента активности и правила автоматизации" loading="lazy">
@@ -158,7 +163,7 @@
         </div>
       </article>
 
-      <article class="case reveal">
+      <article class="case reveal" data-category="product">
         <div class="case__media">
           <a class="case__frame" href="cases/mobile-rental.html" tabindex="-1">
             <img src="assets/web/rental-mobile.jpg" width="1800" height="1549" alt="Два экрана мобильного приложения аренды: список уведомлений и фильтр" loading="lazy">
@@ -188,7 +193,7 @@
         </div>
       </article>
 
-      <article class="case reveal">
+      <article class="case reveal" data-category="product">
         <div class="case__media">
           <a class="case__frame case__frame--43" href="cases/equipment-rental.html" tabindex="-1">
             <img src="assets/web/equipment-rental.jpg" width="1800" height="1347" alt="Главный экран сервиса аренды техники HELIO: заголовок «Аренда оборудования для каждого этапа строительства» и ножничный подъёмник на фоне стройки" loading="lazy">
@@ -219,7 +224,7 @@
         </div>
       </article>
 
-      <article class="case reveal">
+      <article class="case reveal" data-category="product">
         <div class="case__media">
           <a class="case__frame" href="cases/finance.html" tabindex="-1">
             <img src="assets/web/finance.jpg" width="1600" height="1262" alt="Ноутбук с дашбордом личных финансов Trace: баланс, график чистой стоимости и категории расходов" loading="lazy">
@@ -243,7 +248,7 @@
         </div>
       </article>
 
-      <article class="case reveal">
+      <article class="case reveal" data-category="product">
         <div class="case__media">
           <a class="case__frame" href="cases/onboarding.html" tabindex="-1">
             <img src="assets/web/onboarding.jpg" width="1196" height="896" alt="Смартфон в руках с экраном приветствия приложения Mevo" loading="lazy">
@@ -264,6 +269,30 @@
             <p>Разработан адаптивный onboarding, который меняет сценарий знакомства с системой в зависимости от роли пользователя, целей и уровня подготовки.</p>
           </div>
           <a class="case__link" href="cases/onboarding.html" tabindex="-1" aria-hidden="true">Открыть кейс <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        </div>
+      </article>
+
+      <article class="case reveal" data-category="site">
+        <div class="case__media">
+          <a class="case__frame" href="cases/enfoura.html" tabindex="-1">
+            <img src="assets/web/enfoura.jpg" width="1800" height="1440" alt="Сайт Enfoura на ноутбуке и смартфоне: первый экран с заголовком «Автоматизация производств и диспетчеризация зданий», знаком компании и световыми полосами" loading="lazy">
+          </a>
+        </div>
+        <div class="case__text">
+          <ul class="case__bullets" aria-label="Тип проекта"><li>Концепт</li></ul>
+          <div class="case__title">
+            <h3><a href="cases/enfoura.html">Industrial Automation Website</a></h3>
+            <a class="arrow" href="cases/enfoura.html" tabindex="-1" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7"/></svg></a>
+          </div>
+          <div class="case__block">
+            <h4>Задача</h4>
+            <p>Обновить сайт 2020 года компании, которая автоматизирует производства и инженерные системы зданий.</p>
+          </div>
+          <div class="case__block">
+            <h4>Что было сделано</h4>
+            <p>Новые структура, логотип и визуальный язык. Каждое направление и услуга открывают форму заявки с уже вписанной темой, каталог проектов выдерживает пустые годы и неполные данные.</p>
+          </div>
+          <a class="case__link" href="cases/enfoura.html" tabindex="-1" aria-hidden="true">Открыть кейс <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
         </div>
       </article>
       </div>
@@ -372,6 +401,23 @@
   } else {
     els.forEach(el => el.classList.add('in'));
   }
+
+  // Projects: filter cards by category (product services vs corporate websites).
+  (() => {
+    const bar = document.querySelector('.projects__filter');
+    const cards = [...document.querySelectorAll('.case[data-category]')];
+    const count = document.querySelector('.projects__head .num');
+    if (!bar || !cards.length) return;
+    const word = (n) => { const a = n % 10, b = n % 100; return a === 1 && b !== 11 ? 'кейс' : a >= 2 && a <= 4 && (b < 12 || b > 14) ? 'кейса' : 'кейсов'; };
+    const apply = (f) => {
+      let shown = 0;
+      cards.forEach((c) => { const on = f === 'all' || c.dataset.category === f; c.hidden = !on; if (on) { shown++; c.classList.add('in'); } });
+      bar.querySelectorAll('[data-filter]').forEach((b) => { const on = b.dataset.filter === f; b.setAttribute('aria-pressed', on); b.classList.toggle('btn--ghost', !on); });
+      if (count) count.textContent = shown + ' ' + word(shown);
+    };
+    bar.hidden = false;
+    bar.addEventListener('click', (e) => { const b = e.target.closest('[data-filter]'); if (b) apply(b.dataset.filter); });
+  })();
 
   // Hero title: glyph outlines draw in, then the solid fill returns (idea: 21st.dev "path drawing" hero).
   (async () => {
