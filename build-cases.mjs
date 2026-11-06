@@ -252,7 +252,7 @@ ${c.hidden ? `      <a class="cs-back" href="../index.html#projects">${ARROW_L} 
     <span>© <span class="num">2026</span> Артем Мута</span>
     <nav aria-label="Контакты">
       <a href="mailto:artemdesigner.work@gmail.com">artemdesigner.work@gmail.com</a>
-      <a href="https://t.me/Artfreelancer" target="_blank" rel="noopener">Telegram</a>
+      <a href="../assets/artem-muta-resume.pdf" target="_blank" rel="noopener">Резюме (PDF)</a>
     </nav>
   </div>
 </footer>
