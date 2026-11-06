@@ -361,6 +361,9 @@ Jobs: 200px tabular date column in Ink 3 (15px) beside a body of Title, Ink 2 pa
 ### Reveal (motion)
 Every `.reveal` block enters once: from opacity 0, `translateY(18px)`, `blur(8px)` to sharp over 0.9s on `cubic-bezier(.16, 1, .3, 1)`, triggered by IntersectionObserver at 8% visibility. Hero children stagger 90ms via `--i` on both page types; on case pages every figure, the callout, and the meta list are reveal blocks as well. Under `prefers-reduced-motion` everything is static and instant.
 
+### Sorting demo (motion)
+A case page can show a decision in motion with `:::demo <name>`, which inserts `content/demos/<name>.html`; `assets/demo.js` drives it. Two buttons (the homepage filter pattern) switch the order of the rows inside a browser frame; rows slide 0.8s on the same ease. It plays once, from the rejected order to the chosen one, when 30% of the figure is in view, then stays under the viewer's control. The product's own palette applies only inside the frame (`.odx`). The caption says what the order means and that this is a demo of the logic, not a prototype recording. Without JS it is a static list in the chosen order; under `prefers-reduced-motion` it does not play and the buttons switch instantly.
+
 ## Do's and Don'ts
 
 ### Do:

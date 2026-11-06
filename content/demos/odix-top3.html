@@ -1,0 +1,20 @@
+<figure class="fig demo reveal" data-demo data-active="b">
+<div class="demo__bar" role="group" aria-label="Вариант сортировки топ-3" hidden>
+<button class="btn btn--sm btn--ghost" type="button" data-sort="a" aria-pressed="false" data-verdict="Вверху те, о ком и так знают. Ленина, 12 и ТРЦ Восход просели за неделю, но в топ-3 не попали.">Вариант А · по рейтингу</button>
+<button class="btn btn--sm" type="button" data-sort="b" aria-pressed="true" data-verdict="Вверху свежие просадки, где вмешательство ещё может что-то изменить. Слабые филиалы остаются в таблице.">Вариант Б · по падению за 7 дней</button>
+</div>
+<div class="device device--browser"><div class="device__bar" aria-hidden="true"><i></i><i></i><i></i><span></span></div><div class="device__screen odx">
+<div class="odx-head" aria-hidden="true"><span>Филиал</span><span>Рейтинг</span><span>↓ 7 дн</span></div>
+<div class="demo__stage">
+<div class="demo__cut" aria-hidden="true">Ниже — в таблице филиалов</div>
+<ol class="demo__list">
+<li class="is-top" data-a="3" data-b="1"><div class="odx-row"><span class="odx-rank">01</span><span><b>Пр-т Мира, 84</b><small>Москва</small></span><span class="odx-rating">3,72</span><span class="odx-delta odx-delta--down">▼ 0,24</span></div></li>
+<li class="is-top" data-a="5" data-b="2"><div class="odx-row"><span class="odx-rank">02</span><span><b>Ленина, 12</b><small>Новосибирск</small></span><span class="odx-rating">3,94</span><span class="odx-delta odx-delta--down">▼ 0,18</span></div></li>
+<li class="is-top" data-a="4" data-b="3"><div class="odx-row"><span class="odx-rank">03</span><span><b>ТРЦ Восход</b><small>Екатеринбург</small></span><span class="odx-rating">3,85</span><span class="odx-delta odx-delta--down">▼ 0,15</span></div></li>
+<li data-a="1" data-b="4"><div class="odx-row"><span class="odx-rank">04</span><span><b>Гагарина, 3</b><small>Тула</small></span><span class="odx-rating">3,41</span><span class="odx-delta">▼ 0,01</span></div></li>
+<li data-a="2" data-b="5"><div class="odx-row"><span class="odx-rank">05</span><span><b>Вокзальная, 8</b><small>Самара</small></span><span class="odx-rating">3,55</span><span class="odx-delta">0,00</span></div></li>
+</ol>
+</div>
+</div></div>
+<figcaption><span class="demo__verdict" aria-live="polite">Вверху свежие просадки, где вмешательство ещё может что-то изменить. Слабые филиалы остаются в таблице.</span><span>Демо логики сортировки, не запись прототипа. Данные демонстрационные; Гагарина, 3 и Вокзальная, 8 добавлены для сравнения.</span></figcaption>
+</figure>

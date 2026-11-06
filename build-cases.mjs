@@ -119,6 +119,9 @@ function render(body, slug, site = '', phoneBar = '') {
     if (line.startsWith('![')) { closeList(); const m = line.match(/^!\[([^\]]*)\]\(([^)]+)\)((?:\{[a-z]+\})*)/); const fl = new Set((m[3].match(/[a-z]+/g) || [])); images.push({ alt: m[1], src: m[2], forceTall: fl.has('tall'), strip: fl.has('strip'), wide: fl.has('wide'), page: fl.has('page'), device: fl.has('phone') ? 'phone' : fl.has('browser') ? 'browser' : null }); continue; }
     flushImages();
 
+    // :::demo <name> inserts content/demos/<name>.html (live demos, script: assets/demo.js)
+    const demo = line.match(/^:::demo ([a-z0-9-]+)$/);
+    if (demo) { closeList(); out.push(fs.readFileSync(path.join(CONTENT, 'demos', `${demo[1]}.html`), 'utf8').replace(/\r\n/g, '\n').trim()); continue; }
     if (line === ':::callout') { closeList(); out.push('<div class="callout">'); inCallout = true; continue; }
     if (line === ':::cols') { closeList(); out.push('<div class="cols">'); inCols = true; continue; }
     if (line === ':::') { closeList(); if (inCols) closeCols(); else if (inCallout) { out.push('</div>'); inCallout = false; } continue; }
@@ -263,7 +266,8 @@ ${c.hidden ? `      <a class="cs-back" href="../index.html#projects">${ARROW_L} 
     }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
     els.forEach(el => io.observe(el));
   } else { els.forEach(el => el.classList.add('in')); }
-</script>
+</script>${c.html.includes('data-demo') ? `
+<script src="../assets/demo.js" defer></script>` : ''}
 </body>
 </html>
 `;

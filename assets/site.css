@@ -107,6 +107,7 @@ h4 { font-size: 15px; font-weight: 600; letter-spacing: 0; color: var(--ink-3); 
 .hero .grid { align-items: start; }
 .hero__text { grid-column: 1 / span 7; display: flex; flex-direction: column; gap: 28px; }
 .hero__text h1 { max-width: 14ch; }
+.hero__role { display: block; color: var(--ink-2); }
 /* hero title: outline drawing, then the solid fill returns */
 .draw-title { position: relative; }
 .js .draw-title { color: transparent; transition: color .7s var(--ease); }
@@ -366,6 +367,62 @@ h4 { font-size: 15px; font-weight: 600; letter-spacing: 0; color: var(--ink-3); 
 .fig--mixed .device--browser { height: 100%; display: flex; flex-direction: column; }
 .fig--mixed .device--browser .device__screen { flex: 1; min-height: 0; }
 .fig figcaption { margin-top: 12px; font-size: 14px; color: var(--ink-3); }
+
+/* live sorting demos: :::demo <name> in content/*.md, inside the frame the product's own palette applies */
+.demo { max-width: 880px; }
+.demo__bar { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+.demo__bar[hidden] { display: none; }
+.demo figcaption { display: flex; flex-direction: column; gap: 4px; }
+.demo__verdict { min-height: 3em; font-size: 16px; font-weight: 500; color: var(--ink); text-wrap: pretty; }
+.demo__stage { position: relative; }
+.cs-body .demo__list { --demo-gap: 10px; display: flex; gap: var(--demo-gap); margin: 0; }
+.cs-body .demo__list > li { padding: 0; color: inherit; }
+.cs-body .demo__list > li::before { content: none; }
+.cs-body .demo__list.is-live { display: block; position: relative; }
+.cs-body .demo__list.is-live > li { position: absolute; top: 0; left: 0; right: 0; }
+.demo__list.is-ready > li, .demo__cut { transition: transform .8s var(--ease); }
+.demo__cut { display: none; }
+.demo__stage.is-live .demo__cut { display: flex; align-items: center; gap: 12px; position: absolute; top: 0; left: 0; right: 0; height: 22px; font-size: 12px; color: var(--odx-muted); }
+.demo__cut::after { content: ""; flex: 1; border-top: 1px dashed #C9CCD6; }
+.odx { --odx-ink: #1B1F3B; --odx-muted: #6B7080; --odx-rule: #E4E6EC; --odx-pink: #C2185B; --odx-pink-soft: #F8D3E0; display: flow-root; padding: clamp(14px, 2.4vw, 28px); background: #F3F4F6; color: var(--odx-ink); font-size: 15px; line-height: 1.35; }
+.odx b { font-weight: 600; }
+.odx small { display: block; font-size: 13px; color: var(--odx-muted); }
+.odx-head, .odx-row { display: grid; grid-template-columns: 34px minmax(0, 1fr) 66px 72px; align-items: center; gap: 8px; }
+.odx-head { padding: 0 14px 10px; font-size: 12px; color: var(--odx-muted); }
+.odx-head span:first-child { grid-column: 1 / span 2; }
+.odx-head span:not(:first-child), .odx-rating, .odx-delta { text-align: right; font-variant-numeric: tabular-nums; }
+.odx-row { padding: 12px 14px; border: 1px solid transparent; border-radius: 12px; transition: background-color .5s var(--ease), border-color .5s var(--ease); }
+.is-top .odx-row { background: var(--white); border-color: var(--odx-rule); }
+.odx-rank { font-size: 13px; color: var(--odx-muted); font-variant-numeric: tabular-nums; }
+.odx-rating, .odx-delta { color: var(--odx-muted); transition: color .3s var(--ease); }
+[data-active="a"] .odx-rating, [data-active="b"] .odx-delta { font-weight: 600; color: var(--odx-ink); }
+[data-active="b"] .odx-delta--down { color: #D92D3A; }
+.odx-review { padding: 14px 16px; background: var(--white); border: 1px solid var(--odx-rule); border-radius: 12px; }
+.odx-review__top { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; }
+.odx-sla { flex: none; padding: 5px 10px; border-radius: 6px; font-size: 13px; font-weight: 500; }
+.odx-sla--over { background: #E5233B; color: var(--white); }
+.odx-sla--soon { background: #FDEBD8; color: #B85A08; }
+.odx-sla--left { background: #FBE1EA; color: var(--odx-pink); }
+.odx-meta { flex: 1; min-width: 12em; font-size: 13px; color: var(--odx-muted); }
+.odx-stars { flex: none; font-size: 14px; letter-spacing: 1px; color: var(--odx-pink); }
+.odx-review__body { display: grid; grid-template-columns: 36px minmax(0, 1fr); gap: 12px; margin-top: 10px; }
+.odx-review__body > div > span { display: block; }
+.odx-ava { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: #FBE1EA; color: var(--odx-pink); font-size: 13px; font-weight: 500; }
+.odx-review__foot { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 10px; }
+.odx-tag { padding: 5px 10px; border-radius: 6px; background: #F3F4F6; font-size: 13px; }
+.odx-reply { margin-left: auto; padding: 6px 14px; border-radius: 8px; background: var(--odx-pink-soft); color: var(--odx-pink); font-size: 14px; font-weight: 500; }
+@media (prefers-reduced-motion: reduce) {
+  .demo__list.is-ready > li, .demo__cut, .odx-row, .odx-rating, .odx-delta { transition: none; }
+}
+@media (max-width: 560px) {
+  .odx-head, .odx-row { grid-template-columns: 24px minmax(0, 1fr) 46px 58px; gap: 6px; }
+  .odx-head, .odx-row { padding-left: 10px; padding-right: 10px; }
+  /* the whole queue should fit one phone screen, otherwise the reorder can't be seen */
+  .odx-review { padding: 12px; }
+  .odx-stars { margin-left: auto; }
+  .odx-meta { order: 3; flex-basis: 100%; }
+  .odx-review__foot { display: none; }
+}
 
 .cs-result { margin-top: clamp(56px, 7vw, 96px); padding-top: clamp(32px, 4vw, 48px); border-top: 1px solid var(--rule); }
 .cs-result h2 { margin-top: 0; }

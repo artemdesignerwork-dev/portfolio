@@ -184,6 +184,26 @@
 <p>Обе выборки сортируются по Δ, но решают разные задачи. Топ-3 — зона немедленного действия: темы негатива и кнопки «Разобрать» / «Назначить» прямо на карточке. Таблица — более широкий срез с колонкой «Ответственный», чтобы проверить картину, прежде чем идти глубже.</p>
 </div>
 </div>
+<figure class="fig demo reveal" data-demo data-active="b">
+<div class="demo__bar" role="group" aria-label="Вариант сортировки топ-3" hidden>
+<button class="btn btn--sm btn--ghost" type="button" data-sort="a" aria-pressed="false" data-verdict="Вверху те, о ком и так знают. Ленина, 12 и ТРЦ Восход просели за неделю, но в топ-3 не попали.">Вариант А · по рейтингу</button>
+<button class="btn btn--sm" type="button" data-sort="b" aria-pressed="true" data-verdict="Вверху свежие просадки, где вмешательство ещё может что-то изменить. Слабые филиалы остаются в таблице.">Вариант Б · по падению за 7 дней</button>
+</div>
+<div class="device device--browser"><div class="device__bar" aria-hidden="true"><i></i><i></i><i></i><span></span></div><div class="device__screen odx">
+<div class="odx-head" aria-hidden="true"><span>Филиал</span><span>Рейтинг</span><span>↓ 7 дн</span></div>
+<div class="demo__stage">
+<div class="demo__cut" aria-hidden="true">Ниже — в таблице филиалов</div>
+<ol class="demo__list">
+<li class="is-top" data-a="3" data-b="1"><div class="odx-row"><span class="odx-rank">01</span><span><b>Пр-т Мира, 84</b><small>Москва</small></span><span class="odx-rating">3,72</span><span class="odx-delta odx-delta--down">▼ 0,24</span></div></li>
+<li class="is-top" data-a="5" data-b="2"><div class="odx-row"><span class="odx-rank">02</span><span><b>Ленина, 12</b><small>Новосибирск</small></span><span class="odx-rating">3,94</span><span class="odx-delta odx-delta--down">▼ 0,18</span></div></li>
+<li class="is-top" data-a="4" data-b="3"><div class="odx-row"><span class="odx-rank">03</span><span><b>ТРЦ Восход</b><small>Екатеринбург</small></span><span class="odx-rating">3,85</span><span class="odx-delta odx-delta--down">▼ 0,15</span></div></li>
+<li data-a="1" data-b="4"><div class="odx-row"><span class="odx-rank">04</span><span><b>Гагарина, 3</b><small>Тула</small></span><span class="odx-rating">3,41</span><span class="odx-delta">▼ 0,01</span></div></li>
+<li data-a="2" data-b="5"><div class="odx-row"><span class="odx-rank">05</span><span><b>Вокзальная, 8</b><small>Самара</small></span><span class="odx-rating">3,55</span><span class="odx-delta">0,00</span></div></li>
+</ol>
+</div>
+</div></div>
+<figcaption><span class="demo__verdict" aria-live="polite">Вверху свежие просадки, где вмешательство ещё может что-то изменить. Слабые филиалы остаются в таблице.</span><span>Демо логики сортировки, не запись прототипа. Данные демонстрационные; Гагарина, 3 и Вокзальная, 8 добавлены для сравнения.</span></figcaption>
+</figure>
 <figure class="fig fig--single reveal"><div class="device device--browser"><div class="device__bar" aria-hidden="true"><i></i><i></i><i></i><span></span></div><div class="device__screen"><img src="../assets/cases/odix/02-dashboard-director.jpg" width="2000" height="2323" alt="Главный экран руководителя сети: KPI, автоматический топ-3 по падению рейтинга, тональность по дням, категории и таблица филиалов" loading="lazy"></div></div></figure>
 <h2>Сценарий менеджера</h2>
 <h3>Очередь, которая сама решает, что ответить первым</h3>
@@ -202,6 +222,23 @@
 <p>«Просрочено по SLA», «1–2 звезды», «Повторная жалоба», «Ждут моего согласования» и частые шаблоны ответов находятся рядом с очередью, а не в отдельных разделах.</p>
 </div>
 </div>
+<figure class="fig demo reveal" data-demo data-active="b">
+<div class="demo__bar" role="group" aria-label="Порядок очереди" hidden>
+<button class="btn btn--sm btn--ghost" type="button" data-sort="a" aria-pressed="false" data-verdict="Свежие отзывы сверху, а просрочка на 51 час уходит вниз и тонет.">Обычная очередь · по времени</button>
+<button class="btn btn--sm" type="button" data-sort="b" aria-pressed="true" data-verdict="Сверху отзыв, который ждёт ответа дольше всех. Срочность видна по таймеру, без перехода в карточку.">Очередь Odix · по приоритету</button>
+</div>
+<div class="device device--browser"><div class="device__bar" aria-hidden="true"><i></i><i></i><i></i><span></span></div><div class="device__screen odx">
+<div class="demo__stage">
+<ol class="demo__list">
+<li data-a="4" data-b="1"><div class="odx-review"><div class="odx-review__top"><span class="odx-sla odx-sla--over">Просрочен · 51 ч</span><span class="odx-meta">Пр-т Мира, 84 · Яндекс Карты · 2 дня назад</span><span class="odx-stars" role="img" aria-label="Оценка 1 из 5">★☆☆☆☆</span></div><div class="odx-review__body"><span class="odx-ava" aria-hidden="true">МС</span><div><b>Марина С.</b><span>Ждали заказ 40 минут, на кассе никто не предупредил о задержке. Второй раз за месяц одна и та же история.</span></div></div><div class="odx-review__foot"><span class="odx-tag">ожидание</span><span class="odx-tag">повторная жалоба</span><span class="odx-reply" aria-hidden="true">Ответить</span></div></div></li>
+<li data-a="2" data-b="2"><div class="odx-review"><div class="odx-review__top"><span class="odx-sla odx-sla--soon">Осталось 3 ч</span><span class="odx-meta">Ленина, 12 · 2ГИС · 5 ч назад</span><span class="odx-stars" role="img" aria-label="Оценка 2 из 5">★★☆☆☆</span></div><div class="odx-review__body"><span class="odx-ava" aria-hidden="true">ДК</span><div><b>Дмитрий К.</b><span>Блюдо принесли холодным, попросил заменить — отказали. Настроение испорчено.</span></div></div><div class="odx-review__foot"><span class="odx-tag">качество блюд</span><span class="odx-tag">персонал</span><span class="odx-reply" aria-hidden="true">Ответить</span></div></div></li>
+<li data-a="3" data-b="3"><div class="odx-review"><div class="odx-review__top"><span class="odx-sla odx-sla--over">Просрочен · 22 ч</span><span class="odx-meta">Садовая, 7 · Google Maps · 1 день назад</span><span class="odx-stars" role="img" aria-label="Оценка 2 из 5">★★☆☆☆</span></div><div class="odx-review__body"><span class="odx-ava" aria-hidden="true">ЕВ</span><div><b>Екатерина В.</b><span>Заказ доставили с опозданием, никто не извинился. Очень разочарована сервисом.</span></div></div><div class="odx-review__foot"><span class="odx-tag">доставка</span><span class="odx-tag">обслуживание</span><span class="odx-reply" aria-hidden="true">Ответить</span></div></div></li>
+<li data-a="1" data-b="4"><div class="odx-review"><div class="odx-review__top"><span class="odx-sla odx-sla--left">Осталось 5 ч</span><span class="odx-meta">Советская, 23 · Яндекс Карты · 3 ч назад</span><span class="odx-stars" role="img" aria-label="Оценка 1 из 5">★☆☆☆☆</span></div><div class="odx-review__body"><span class="odx-ava" aria-hidden="true">ИЛ</span><div><b>Игорь Л.</b><span>Персонал был невежлив, не помогли с заказом. Хотелось бы улучшений.</span></div></div><div class="odx-review__foot"><span class="odx-tag">персонал</span><span class="odx-tag">обслуживание</span><span class="odx-reply" aria-hidden="true">Ответить</span></div></div></li>
+</ol>
+</div>
+</div></div>
+<figcaption><span class="demo__verdict" aria-live="polite">Сверху отзыв, который ждёт ответа дольше всех. Срочность видна по таймеру, без перехода в карточку.</span><span>Демо логики сортировки, не запись прототипа. Отзывы те же, что на экране ниже.</span></figcaption>
+</figure>
 <figure class="fig fig--single reveal"><div class="device device--browser"><div class="device__bar" aria-hidden="true"><i></i><i></i><i></i><span></span></div><div class="device__screen"><img src="../assets/cases/odix/03-dashboard-manager.jpg" width="2000" height="1778" alt="Главный экран менеджера: очередь отзывов по приоритету, SLA-таймеры, фильтры очереди и шаблоны ответов" loading="lazy"></div></div></figure>
 <h2>Работа с негативом</h2>
 <h3>Всплеск негатива: от сигнала до ответственного за 8 шагов</h3>
@@ -367,5 +404,6 @@
     els.forEach(el => io.observe(el));
   } else { els.forEach(el => el.classList.add('in')); }
 </script>
+<script src="../assets/demo.js" defer></script>
 </body>
 </html>
