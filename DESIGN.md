@@ -238,7 +238,7 @@ A near-monochrome ink-on-paper palette with a single saturated cobalt held back 
 **Character:** One variable family carries the whole site. Headings are heavy (700–800) and tight (−0.03 to −0.04em) so Cyrillic headlines sit as compact blocks; body is regular 17px with a relaxed 1.55 line-height. Numbers are tabular wherever dates or counts appear. No uppercase, no letter-spaced labels, no second family.
 
 ### Hierarchy
-- **Display** (800, clamp(40px, 5.6vw, 76px), 1.0, −0.04em): the hero H1 only. Homepage: name on the first line, role on the second in Ink 2, max width 14ch. Case pages: the project title, max width 16ch.
+- **Display** (800, clamp(40px, 5.6vw, 76px), 1.0, −0.04em): the hero H1 only. Homepage: the role only (the name stays in the nav), max width 14ch. Case pages: the project title, max width 16ch.
 - **Headline** (700, clamp(30px, 3.4vw, 46px), 1.06, −0.03em): section headings ("Ключевые проекты", "Опыт"), the panel headline, and case-study chapter h2s (clamp(56px, 7vw, 96px) above, 20px below). In résumé sections it is sticky at 96px from the top.
 - **Title** (700, clamp(24px, 2.2vw, 30px), 1.15, −0.03em): case titles on the homepage, case-study h3 subsections, persona names, and prev/next project names (from 22px). Job titles use the same style fixed at 24px.
 - **Subhead** (700, 22px, 1.15, −0.02em): the fixed step below Title, for headings that sit inside a section rather than lead one: the two-column strip headings ("Специализация", "Подход к работе"), the education title, and `.subhead` h3s inside case prose ("Цель").
