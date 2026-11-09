@@ -131,7 +131,7 @@ function render(body, slug, site = '', phoneBar = '') {
       closeList();
       const srcLevel = h[1].length + 1; const text = inline(h[2]);
       const level = Math.min(srcLevel, lastLevel + 1); lastLevel = level;
-      if (srcLevel === 2) { closePersona(); closeCols(); if (h[2] === 'Результат' && !inResult) { out.push('<div class="cs-result">'); inResult = true; } out.push(`<h2>${text}</h2>`); continue; }
+      if (srcLevel === 2) { closePersona(); closeCols(); if (/^(Результат|Итог)$/.test(h[2]) && !inResult) { out.push('<div class="cs-result">'); inResult = true; } out.push(`<h2>${text}</h2>`); continue; }
       if (srcLevel === 3) {
         closePersona(); closeCols();
         if (/^Персона/.test(h[2])) { out.push(`<section class="persona"><h3>${text}</h3><div class="persona__grid">`); inPersona = true; personaGrid = true; continue; }
